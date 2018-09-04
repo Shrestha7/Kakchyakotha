@@ -6,8 +6,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
  
-    <security:http auto-config="true">
+    <security:http auto-config="false">
+        <security:form-login login-page="/login" username-parameter="userName" password-parameter="password"/>
         <security:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
+        <security: csrf disable="false"/>
     </security:http>
     
     <security:authentication-manager>
