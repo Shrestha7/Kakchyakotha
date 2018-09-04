@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author SWASTIK_SHRESTHA
  */
 @Controller
-@RequestMapping(value = "/admin-Dashboard")
+@RequestMapping(value = "/admin-dashboard")
 public class adminDashboard {
      @RequestMapping(method = RequestMethod.GET)
     public String showHome(){
-               return "admin-Dashboard";
+               return "admin-dashboard";
     }
 }
