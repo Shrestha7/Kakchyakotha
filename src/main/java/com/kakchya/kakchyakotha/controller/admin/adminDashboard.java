@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.kakchya.kakchyakotha.controller;
+package com.kakchya.kakchyakotha.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
- * @author Ujjwal Nakarmi
+ * @author SWASTIK_SHRESTHA
  */
 @Controller
-@RequestMapping(value = "/login")
-public class LoginController {
-    @RequestMapping(method = RequestMethod.GET)
+@RequestMapping(value = "/admin-Dashboard")
+public class adminDashboard {
+     @RequestMapping(method = RequestMethod.GET)
     public String showHome(){
-               return "login";
+               return "admin-Dashboard";
     }
 }

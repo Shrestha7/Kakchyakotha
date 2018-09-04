@@ -8,15 +8,29 @@
  
     <security:http auto-config="false">
         <security:form-login login-page="/login" username-parameter="userName" password-parameter="password"/>
-        <security:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
-        <security: csrf disable="false"/>
+        <security:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN','ROLE_STUDENT','ROLE_TEACHER')"/>
+        <security:csrf disabled="false"/>
     </security:http>
     
     <security:authentication-manager>
         <security:authentication-provider>
+<!--            <security:jdbc-user-service data-source-ref="dataSource"
+                                        users-by-username-query="
+         SELECT USERNAME, PASSWORD, CASE ENABLED WHEN 1 THEN 'true' ELSE 'false' END 'ENABLED'
+         FROM TBL_USERS
+         WHERE USERNAME=?;"
+ 
+                                        authorities-by-username-query="
+        SELECT u.USERNAME, r.ROLENAME
+        FROM TBL_USERS u, TBL_USER_ROLE r
+        WHERE u.ID = r.USERID
+        AND u.USERNAME=?;"
+            />-->
             <security:user-service>
+            
                 <security:user name="admin" password="admin1" authorities="ROLE_ADMIN"/>
-                <security:user name="user" password="user1" authorities="ROLE_USER"/>
+                <security:user name="user" password="user1" authorities="ROLE_STUDENT"/>
+                <security:user name="user" password="user1" authorities="ROLE_TEACHER"/>
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>
