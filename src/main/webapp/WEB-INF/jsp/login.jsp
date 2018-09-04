@@ -31,6 +31,12 @@
             <h1>welcome to kakchayakotha</h1>
             <hr>
             <h1>Login</h1>
+            <c:if test=" ${param.error !=null}">
+            <div class="alert-danger">
+                Invalid UserName/ Password!!!!
+                
+            </div>
+            </c:if>
             <form method="post">
                 <div class="form-group">
                     <label>User Name</label>
@@ -40,6 +46,7 @@
                     <label>Password</label>
                     <input type=" password" name="password" class="form-control"/>
                 </div>
+                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <button type="submit"> Login</button>
                 
             </form>

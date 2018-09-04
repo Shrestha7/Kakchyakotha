@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Ujjwal Nakarmi
  */
 @Controller
-@RequestMapping(value = "/login")
-public class Login {
+//@RequestMapping(value = "/login")
+public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
     public String showHome(){
                return "login";
