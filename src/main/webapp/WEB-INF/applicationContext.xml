@@ -9,7 +9,7 @@
     <security:http auto-config="false">
         <security:form-login login-page="/login" username-parameter="userName" password-parameter="password"/>
         <security:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
-        <security: csrf disable="false"/>
+        <security:csrf disabled="false"/>
     </security:http>
     
     <security:authentication-manager>
